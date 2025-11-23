@@ -48,3 +48,75 @@ class laptop:
         print(self.name,self.ram,self.price)
 lenovo=laptop("lenovo",16,50000)
 lenovo.info()
+
+class Employee:
+    def __init__(self,name):
+        self.name=name
+        self.__salary=0
+    def set_salary(self,amount):
+        if amount>0:
+            self.__salary=amount
+        else:
+            print("Salary must be possitve")
+    def get_salary(self):
+        return self.__salary
+e1=Employee("sadiq")
+e1.set_salary(45000)
+print(e1.get_salary())
+
+# class Student:
+#     def __init__(self,name):
+#         self.name=name
+#         self.__marks=0
+
+# class person:
+#     def __init__(self,name):
+#         self.name
+# class Student(person):
+#     def __init__(self,name,rollno):
+#         super().__init__(name)
+#         self.name=name
+#         self.rollno=rollno
+# # p1=person("ashfaq")
+# p2=student("sadiq",301)
+# # print(p1.name)
+# print(p2.name)
+
+class Animal:
+    def sound(self):
+        print("same sound ")
+class Dog(Animal):
+    def sound(self):
+        print("bark")
+class Cat(Animal):
+    def sound(self):
+        print("meow") 
+jermanshepherd=Dog()
+jermanshepherd.sound()
+persioan=Cat()
+persioan.sound()
+
+from abc import ABC,abstractmethod
+
+
+class Shapes():
+    @abstractmethod
+    def area(self):
+        pass
+class Rectangle(Shapes):
+    def __init__(self ,1, w):
+        super().__init__()
+        self.1=1
+        self.w=w
+    def area(self):
+        return self.1*self.w
+
+class Circle(Shapes):
+    def __init__(self,r):
+        self.r =r
+    def area(self):
+        return 3.14*self.r*self.r
+    
+r1 = Rectangle(10,5)
+c1 = Circle(7)
+print("Area of Rectangle:",r1.area())
