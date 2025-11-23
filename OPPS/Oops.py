@@ -104,12 +104,12 @@ class Shapes():
     def area(self):
         pass
 class Rectangle(Shapes):
-    def __init__(self ,1, w):
+    def __init__(self ,l, w):
         super().__init__()
-        self.1=1
+        self.l=1
         self.w=w
     def area(self):
-        return self.1*self.w
+        return self.l*self.w
 
 class Circle(Shapes):
     def __init__(self,r):
