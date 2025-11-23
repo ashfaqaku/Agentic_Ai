@@ -38,3 +38,13 @@ class mobile:
 mobile1=mobile("iphone",70000)
 
 mobile1.info()
+
+class laptop:
+    def __init__(self,name,ram,price):
+        self.name=name
+        self.ram=ram
+        self.price=price
+    def info(self):
+        print(self.name,self.ram,self.price)
+lenovo=laptop("lenovo",16,50000)
+lenovo.info()
