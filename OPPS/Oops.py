@@ -81,7 +81,7 @@ print(e1.get_salary())
 # p2=student("sadiq",301)
 # # print(p1.name)
 # print(p2.name)
-
+# 
 class Animal:
     def sound(self):
         print("same sound ")
@@ -95,6 +95,7 @@ jermanshepherd=Dog()
 jermanshepherd.sound()
 persioan=Cat()
 persioan.sound()
+# abstract class
 
 from abc import ABC,abstractmethod
 
@@ -120,3 +121,4 @@ class Circle(Shapes):
 r1 = Rectangle(10,5)
 c1 = Circle(7)
 print("Area of Rectangle:",r1.area())
+
