@@ -16,8 +16,9 @@ uvicorn  - web server
 pydantic - Library -  type safety
 starelltte - SGI server getway interface protocl
 
+#commands for make the enveorments
 
-python -m venc .venv
+python -m venv .venv
 pip install fastapi uvicorn pydantic
 pip freeze > requriments.txt  
 pip install fastapi uvicorn
