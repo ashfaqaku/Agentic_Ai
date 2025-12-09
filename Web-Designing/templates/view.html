@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Submissions</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .submissions-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            max-height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 All Form Submissions</h1>
+        <div class="submissions-box">
+            {{ content }}
+        </div>
+        <div class="action-buttons">
+            <a href="/" class="back-btn">Back to Form</a>
+            <button onclick="location.reload()" class="refresh-btn">Refresh</button>
+        </div>
+    </div>
+</body>
+</html>
