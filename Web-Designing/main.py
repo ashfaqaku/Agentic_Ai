@@ -1,116 +1,149 @@
-# from typing import Union
-
-# from fastapi import FastAPI
-# from pydantic import BaseModel
-
-# app = FastAPI()
-# @app.get("/")
-# def home():
-#     return{"message": "fastapi is working Successfully."}
-
-# class TalentForm(BaseModel):
-#     name:str
-#     email:str
-#     primary_talent:str
-
-
-# @app.get("/submit")
-# def submit_form(data: TalentForm):
-#     return{
-#         "message": "fastapi is working Successfully.","data":data
-#     }
-from fastapi import FastAPI, Form, Request
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI, Depends, HTTPException, Request, Form
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from pathlib import Path
-import os
+from fastapi.staticfiles import StaticFiles  # ADD THIS LINE
+from sqlalchemy.orm import Session
+from typing import List, Optional
+import uvicorn
 
-# Initialize FastAPI
-app = FastAPI()
+# Import your modules
+from database import get_db, engine, Base
+import models
+import schemas
 
-# Create necessary directories
-Path("templates").mkdir(exist_ok=True)
-Path("static").mkdir(exist_ok=True)
+# Create tables
+Base.metadata.create_all(bind=engine)
 
-# Setup templates and static files
+# Create FastAPI app
+app = FastAPI(title="Talent Management API", version="1.0.0")
+
+# Setup templates
 templates = Jinja2Templates(directory="templates")
+
+from pathlib import Path
+Path("static").mkdir(exist_ok=True)  # Ensure static directory exists
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Home page - Serves your HTML form
-@app.get("/", response_class=HTMLResponse)
-async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
 
-# Handle form submission
+
+@app.get("/", response_class=HTMLResponse)
+async def home(request: Request, db: Session = Depends(get_db)):
+    """Render home page with registration form"""
+    try:
+        db.execute("SELECT 1")
+        mode = "PostgreSQL (Connected)"
+    except:
+        mode = "In-Memory"
+    
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request, "mode": mode}
+    )
+
 @app.post("/submit")
-async def submit_form(
+async def submit_talent(
     request: Request,
     name: str = Form(...),
     email: str = Form(...),
     primary_talent: str = Form(...),
-    other_talent: str = Form(""),
-    notes: str = Form(""),
-    newsletter: str = Form("no")
+    other_talent: Optional[str] = Form(None),
+    notes: Optional[str] = Form(None),
+    newsletter: Optional[str] = Form(None),
+    db: Session = Depends(get_db)
 ):
-    # Save to file
+    """Handle form submission"""
     try:
-        with open("submissions.txt", "a", encoding="utf-8") as f:
-            f.write(f"Name: {name}\n")
-            f.write(f"Email: {email}\n")
-            f.write(f"Primary Talent: {primary_talent}\n")
-            f.write(f"Other Talent: {other_talent}\n")
-            f.write(f"Notes: {notes}\n")
-            f.write(f"Newsletter: {'Yes' if newsletter == 'yes' else 'No'}\n")
-            f.write("=" * 40 + "\n\n")
+        # Check if email exists
+        existing = db.query(models.Talent).filter(models.Talent.email == email).first()
+        if existing:
+            return RedirectResponse(url="/?error=Email+already+exists", status_code=303)
         
-        # Show success page
-        return templates.TemplateResponse(
-            "success.html", 
-            {
-                "request": request,
-                "name": name,
-                "primary_talent": primary_talent
-            }
+        # Create new talent
+        skills = f"{primary_talent}"
+        if other_talent:
+            skills += f", {other_talent}"
+        
+        db_talent = models.Talent(
+            name=name,
+            email=email,
+            skills=skills,
+            experience_years=0  # You can modify this based on your form
         )
+        
+        db.add(db_talent)
+        db.commit()
+        db.refresh(db_talent)
+        
+        # Redirect to success page or view page
+        return RedirectResponse(url="/view", status_code=303)
         
     except Exception as e:
-        return JSONResponse(
-            {"error": str(e)},
-            status_code=500
-        )
+        return RedirectResponse(url=f"/?error={str(e)}", status_code=303)
 
-# View all submissions
-@app.get("/view")
-async def view_submissions(request: Request):
-    try:
-        with open("submissions.txt", "r", encoding="utf-8") as f:
-            content = f.read()
-        return templates.TemplateResponse(
-            "view.html",
-            {
-                "request": request,
-                "content": content
-            }
-        )
-    except:
-        return templates.TemplateResponse(
-            "view.html",
-            {
-                "request": request,
-                "content": "No submissions yet"
-            }
-        )
-
-# Run server
-if __name__ == "__main__":
-    import uvicorn
-    print("=" * 60)
-    print("🚀 TALENT REGISTRATION FORM SERVER")
-    print("🌐 Open: http://localhost:8000")
-    print("📁 HTML: templates/index.html")
-    print("🎨 CSS: static/style.css")
-    print("💾 Data: submissions.txt")
-    print("=" * 60)
+@app.get("/view", response_class=HTMLResponse)
+async def view_talents(request: Request, db: Session = Depends(get_db)):
+    """View all talents"""
+    talents = db.query(models.Talent).all()
     
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    return templates.TemplateResponse(
+        "view.html",
+        {"request": request, "talents": talents, "total": len(talents)}  # ADDED "total": len(talents)
+    )
+
+@app.get("/stats", response_class=HTMLResponse)
+async def view_stats(request: Request, db: Session = Depends(get_db)):
+    """Show statistics"""
+    total = db.query(models.Talent).count()
+    
+    # Group by skills (simplified)
+    skills_count = {}
+    talents = db.query(models.Talent).all()
+    for talent in talents:
+        if talent.skills:
+            for skill in talent.skills.split(','):
+                skill = skill.strip()
+                skills_count[skill] = skills_count.get(skill, 0) + 1
+    
+    return templates.TemplateResponse(
+        "stats.html",
+        {
+            "request": request,
+            "total": total,
+            "skills_count": skills_count
+        }
+    )
+
+# Keep your API endpoints
+@app.get("/health")
+async def health_check(db: Session = Depends(get_db)):
+    try:
+        db.execute("SELECT 1")
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "unhealthy", "database": "error", "error": str(e)}
+
+@app.get("/api/talents", response_model=List[schemas.TalentResponse])
+async def get_talents_api(db: Session = Depends(get_db)):
+    talents = db.query(models.Talent).all()
+    return talents
+
+@app.post("/api/talents", response_model=schemas.TalentResponse)
+async def create_talent_api(talent: schemas.TalentCreate, db: Session = Depends(get_db)):
+    existing = db.query(models.Talent).filter(models.Talent.email == talent.email).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Email already exists")
+    
+    db_talent = models.Talent(
+        name=talent.name,
+        email=talent.email,
+        skills=talent.skills,
+        experience_years=talent.experience_years
+    )
+    
+    db.add(db_talent)
+    db.commit()
+    db.refresh(db_talent)
+    return db_talent
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

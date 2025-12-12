@@ -1,0 +1,10 @@
+E:\SMIT\SMIT\Python\Agentic_Ai\Rust\rust-ai-project\target\debug\deps\safetensors-993f38b34ee8b66e.d: C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\lib.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\slice.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\tensor.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\../README.md
+
+E:\SMIT\SMIT\Python\Agentic_Ai\Rust\rust-ai-project\target\debug\deps\libsafetensors-993f38b34ee8b66e.rlib: C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\lib.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\slice.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\tensor.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\../README.md
+
+E:\SMIT\SMIT\Python\Agentic_Ai\Rust\rust-ai-project\target\debug\deps\libsafetensors-993f38b34ee8b66e.rmeta: C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\lib.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\slice.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\tensor.rs C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\../README.md
+
+C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\lib.rs:
+C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\slice.rs:
+C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\tensor.rs:
+C:\Users\Sh\ Laptop\ Store\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\safetensors-0.4.5\src\../README.md:
