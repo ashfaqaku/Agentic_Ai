@@ -1,0 +1,10 @@
+[package]
+name = "agent_tools"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+agent_core = { path = "../agent_core" }
+
+[lib]
+name = "agent_tools"

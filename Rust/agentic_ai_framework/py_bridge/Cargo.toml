@@ -1,0 +1,12 @@
+[package]
+name = "py_bridge"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "py_bridge"
+crate-type = ["cdylib"]  # Required for Python
+
+[dependencies]
+agent_core = { path = "../agent_core" }
+pyo3 = { version = "0.20", features = ["extension-module", "macros"] }
