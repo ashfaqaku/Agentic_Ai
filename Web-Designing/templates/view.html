@@ -1,30 +1,79 @@
+<!-- templates/view.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Submissions</title>
+    <title>View Talent Submissions</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
-        .submissions-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            max-height: 500px;
-            overflow-y: auto;
-            white-space: pre-wrap;
-            font-family: monospace;
+        .talent-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .talent-table th, .talent-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .talent-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .talent-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .stats {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📋 All Form Submissions</h1>
-        <div class="submissions-box">
-            {{ content }}
+        <h1>🎭 Talent Submissions</h1>
+
+        <div class="stats">
+            <strong>Total Registrations:</strong> {{ total }}
         </div>
-        <div class="action-buttons">
-            <a href="/" class="back-btn">Back to Form</a>
-            <button onclick="location.reload()" class="refresh-btn">Refresh</button>
+
+        {% if talents %}
+        <table class="talent-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Primary Talent</th>
+                    <th>Other Talent</th>
+                    <th>Newsletter</th>
+                    <th>Registered On</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for talent in talents %}
+                <tr>
+                    <td>{{ talent.id }}</td>
+                    <td>{{ talent.name }}</td>
+                    <td>{{ talent.email }}</td>
+                    <td>{{ talent.skills or '' }}</td>  <!-- Use skills instead of primary_talent -->
+                    <td>-</td>                          <!-- Hardcoded other_talent -->
+                    <td>✓</td>                          <!-- Hardcoded newsletter checkmark -->
+                    <td>{{ talent.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <div class="no-data">
+            <p>No talent submissions yet.</p>
+        </div>
+        {% endif %}
+
+        <div style="margin-top: 20px;">
+            <a href="/" class="button">← Back to Registration</a>
+            <a href="/api/talents" class="button" target="_blank">View JSON API</a>
         </div>
     </div>
 </body>

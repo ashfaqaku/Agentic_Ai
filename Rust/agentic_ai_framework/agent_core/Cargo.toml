@@ -1,0 +1,13 @@
+[package]
+name = "agent_core"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "agent_core"
+crate-type = ["cdylib", "rlib"]  # ← ADD THIS LINE
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+pyo3 = { version = "0.20", features = ["extension-module"] }  # ← ADD THIS
