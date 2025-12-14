@@ -14,3 +14,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+# External project folders (outside this repo)
+../../agent-api/
+../../rust-agent-shuttle/
+../../web-ui/
