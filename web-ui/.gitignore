@@ -1,0 +1,5 @@
+
+# External projects in parent directory
+../agent-api/
+../rust-agent-shuttle/
+../web-ui/
