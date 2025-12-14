@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    "agent_core",
+    "agent_orchestrator",
+    "agent_tools", 
+    "agent_llm",
+    "demo_agent"
+, "agent_api"]
+resolver = "2"
+
+[profile.release]
+opt-level = 3
+lto = true

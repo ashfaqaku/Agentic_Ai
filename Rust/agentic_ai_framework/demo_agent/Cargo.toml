@@ -1,0 +1,10 @@
+[package]
+name = "demo_agent"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+agent_core = { path = "../agent_core" }
+agent_orchestrator = { path = "../agent_orchestrator" }
+agent_tools = { path = "../agent_tools" }
+agent_llm = { path = "../agent_llm" }
