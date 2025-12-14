@@ -1,0 +1,49 @@
+[00:00:02.529] Server  LOG      ✓ Ready in 1887ms
+[00:00:10.492] Server  LOG      ○ Compiling / ...
+[00:00:15.084] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:15.425] Browser ERROR   uncaughtError: Error: Hydration failed because the server rendered text didn't match the client. As a result this tree will be regenerated on the client. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <SegmentViewNode type="page" pagePath="page.tsx">
+      <SegmentTrieNode>
+      <ClientPageRoot Component={function Home} serverProvidedParams={{...}}>
+        <Home params={Promise} searchParams={Promise}>
+          <div className="jsx-e08f2f...">
+            <div>
+            <div className="jsx-e08f2f...">
+              <header>
+              <main className="jsx-e08f2f...">
+                <div>
+                <div className="jsx-e08f2f...">
+                  <div className="jsx-e08f2f...">
+                    <div className="jsx-e08f2f...">
+                      <div className="jsx-e08f2f...">
+                        <div>
+                        <div className={"jsx-e08f..."}>
+                          <div className="jsx-e08f2f...">
+                            <div>
+                            <div className="jsx-e08f2f...">
+                              <span className="jsx-e08f2f726cdd637 text-xs text-gray-500">
++                               18:03
+-                               06:03 PM
+                              ...
+                          ...
+                    ...
+                ...
+            ...
+    ...
+
+[00:01:27.868] Server  LOG      ✓ Compiled in 470ms
+[00:01:51.684] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:54.360] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:54.990] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
