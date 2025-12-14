@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+
 # Dependencies
 jspm_packages/
 
@@ -35,3 +36,7 @@ build/
 
 # Coverage directory used by tools like istanbul
 coverage/
+
+# External projects in parent directory
+agent-api/
+rust-agent-shuttle/
