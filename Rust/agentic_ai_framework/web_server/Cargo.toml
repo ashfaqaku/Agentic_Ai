@@ -1,0 +1,13 @@
+[package]
+name = "web_server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+actix-cors = "0.7"  # ✅ ADD THIS LINE
+serde = { version = "1.0", features = ["derive"] }
+#actix-web = { workspace = true }
+#serde = { workspace = true }
+agent_core = { path = "../agent_core" }
+agent_llm = { path = "../agent_llm" }

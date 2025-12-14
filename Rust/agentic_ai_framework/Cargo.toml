@@ -1,13 +1,16 @@
 [workspace]
-members = [
-    "agent_core",
-    "agent_orchestrator",
-    "agent_tools", 
-    "agent_llm",
-    "demo_agent"
-, "agent_api"]
 resolver = "2"
+members = [
+    "web_server",
+    "agent_core",
+    "agent_tools",
+    "agent_api",
+    "agent_llm",
+    "agent_orchestrator",
+    "demo_agent"
+    #"py_bridge"
+]
 
-[profile.release]
-opt-level = 3
-lto = true
+[workspace.dependencies]
+actix-web = "4"
+serde = { version = "1", features = ["derive"] }

@@ -31,4 +31,18 @@ impl Agent {
     pub fn recall(&self) -> Vec<String> {
         self.memory.clone()
     }
+
+     pub fn calculate(&self, expression: &str) -> Option<f64> {
+        // Simple calculation logic
+        // For now, handle basic arithmetic
+        if expression.contains('+') {
+            let numbers: Vec<f64> = expression.split('+')
+                .filter_map(|s| s.trim().parse::<f64>().ok())
+                .collect();
+            if !numbers.is_empty() {
+                return Some(numbers.iter().sum());
+            }
+        }
+        None
+    }
 }
