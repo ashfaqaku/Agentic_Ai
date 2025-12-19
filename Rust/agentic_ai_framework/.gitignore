@@ -1,20 +1,4 @@
-# Rust
-/target/
-**/*.rs.bk
 
-# Cargo lock file (usually commit karte hain, isliye comment kiya)
-# Cargo.lock
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-# External project folders (outside this repo)
-../../agent-api/
-../../rust-agent-shuttle/
-../../web-ui/
+/target
+.shuttle*
+Secrets*.toml
