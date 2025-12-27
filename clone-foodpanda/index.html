@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ... existing code ... -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>foodpanda Clone - Assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo-link">
+                    <img src="./Foodpanda Icon.jpg" alt="Your Name" class="profile-pic">
+                    <span href="#" class="logo">foodpanda</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#newsroom">Newsroom</a></li>
+                    <li><a href="#partners">Partners</a></li>
+                    <li><a href="panda-ads.html" target="_blank">panda ads</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li class="desktop-profile">
+
+                    </li>
+                    <!-- Mobile only - Chose Location button -->
+                    <li class="mobile-only">
+                        <a href="#download" class="btn location-btn">Choose Location</a>
+                    </li>
+
+                </ul>
+
+                <!-- Desktop only - Chose Location button -->
+                <div class="country-selector desktop-only">
+                    <div class="location-wrapper">
+                        <button class="location-btn">
+                            Choose Location
+                        </button>
+                        <button class="search-icon-btn">
+                            <svg class="magnifier-icon" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                stroke="white" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="M21 21l-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Desktop only - Chose Location button -->
+                    <!-- Desktop only - Chose Location button -->
+
+                    <div class="location-dropdown">
+                        <ul class="country-list">
+                            <li><a href="#">Bangladesh</a></li>
+                            <li><a href="#">Cambodia</a></li>
+                            <li><a href="#">Hong Kong</a></li>
+                            <li><a href="#">Laos</a></li>
+                            <li><a href="#">Malaysia</a></li>
+                            <li><a href="#">Myanmar</a></li>
+                            <li><a href="#">Pakistan</a></li>
+                            <li><a href="#">Philippines</a></li>
+                            <li><a href="#">Singapore</a></li>
+                            <li><a href="#">Taiwan</a></li>
+                            <li><a href="#">Thailand</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- 主横幅部分 -->
+   <section class="hero" id="home">
+    <div class="wp-block-group h-full is-vertical is-layout-flex wp-container-core-group-is-layout-0abfb586 wp-block-group-is-layout-flex">
+        <div class="hero-content">
+            <h1>
+                food<br>
+                and groceries<br>
+                in a tap
+            </h1>
+            
+            <!-- Optional text and button -->
+            <!-- <p class="hero-subtitle">We're here to help you live life the panda way. Spend more time doing what you love.</p> -->
+        </div>
+    </div>
+</section>
+ <section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <h1>
+                We’re here to help you <br> live life the panda way.<br>
+                Spend more time doing what you<br> love – we’ll take care of tasty <br> meals, fresh groceries and new <br> flavours.
+            </h1>
+            
+            <!-- Optional text and button -->
+            <p class="hero-subtitle">We're here to help you live life the panda way. Spend more time doing what you love.</p>
+        </div>
+    </div>
+</section>
+
+    <!-- 特色部分 -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Meet the next generation of delivery!</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">What makes quick commerce quick? We
+                stand for swift personalised delivery solutions for our customers, partners and employees. Learn how we
+                empower authentic lifestyles and drive innovation across the globe.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Delivery</h3>
+                    <p>Get your favorite meals delivered to your doorstep in minutes, not hours.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Fresh Groceries</h3>
+                    <p>Order fresh groceries from local stores and supermarkets with same-day delivery.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Reach</h3>
+                    <p>Operating in multiple countries with a wide network of restaurant partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载部分 -->
+    <section class="download" id="download">
+        <div class="container">
+            <h2 class="section-title">Taste the convenience</h2>
+            <p>Try us out! Delicious food and speedy groceries are at your fingertips. Go ahead, download foodpanda now.
+            </p>
+            <button class="btn">Download Now</button>
+        </div>
+    </section>
+
+    <!-- 职业部分 -->
+    <section class="careers" id="careers">
+        <div class="container">
+            <div class="career-content">
+                <h2 class="section-title">Find the job you'd love</h2>
+                <p>Hungry to make a difference? There's a seat at our table! Find out how we connect tech, passions,
+                    projects and people – explore international career opportunities at foodpanda.</p>
+                <button class="btn" style="margin-top: 30px;">View Careers</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻部分 -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">Have you heard?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">The industry is changing fast! Stay up
+                to date with foodpanda press. Catch up on the latest news, updates and reports here.</p>
+
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <h3>Latest Company Updates</h3>
+                        <p>Stay informed about our latest initiatives and market expansions across the globe.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <h3>Industry Reports</h3>
+                        <p>Access our quarterly reports on food delivery trends and consumer behaviors.</p>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="news-image"></div>
+                    <div class="news-content">
+                        <h3>Press Releases</h3>
+                        <p>Read official announcements about partnerships, innovations, and achievements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业部分 -->
+    <section class="corporate" id="corporate">
+        <div class="container">
+            <div class="corporate-content">
+                <h2 class="section-title">Feed your team</h2>
+                <p>Treat your talented team to their favourite meals. Let them pick! Explore flexible corporate food
+                    delivery options and tasty employee perks.</p>
+                <button class="btn" style="margin-top: 30px;">Business Solutions</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Food Delivery</a></li>
+                        <li><a href="#">Grocery Delivery</a></li>
+                        <li><a href="#">panda ads</a></li>
+                        <li><a href="#">Corporate Solutions</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 foodpanda Clone Assignment. This is a student project for educational purposes only.</p>
+                <p style="margin-top: 10px;">foodpanda is a registered trademark. This site is not affiliated with the
+                    official foodpanda.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+</body>
+
+</html>

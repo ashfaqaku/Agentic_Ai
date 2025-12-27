@@ -1,0 +1,178 @@
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --panda-pink: #D70F64;
+  --panda-bg: #f7f7f7;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-panda: #D70F64;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ===== YOUR FOODPANDA STYLES ===== */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--panda-bg);
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Button Styles */
+.btn-panda {
+  background-color: var(--panda-pink);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-panda:hover {
+  background-color: #b00c52;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(215, 15, 100, 0.3);
+}
+
+.text-panda {
+  color: var(--panda-pink) !important;
+}
+
+/* Navigation Styles */
+.nav-link {
+  position: relative;
+  color: #333333;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 4px;
+  transition: color 0.2s ease;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: var(--panda-pink);
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--panda-pink);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+  transform: scaleX(1);
+}
+
+/* Hero Section */
+.hero-section {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.hero-text {
+  color: white;
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* Card Styles */
+.glass-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 1px solid #eeeeee;
+  padding: 24px;
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: fit-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Utilities */
+.bg-panda {
+  background-color: var(--panda-pink);
+}
+
+.text-panda-dark {
+  color: #b00c52;
+}
+
+.border-panda {
+  border-color: var(--panda-pink);
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 48px;
+  }
+  
+  .hero-section {
+    height: 400px;
+    padding: 0 5%;
+  }
+}
+
+/* Font Awesome Base (if using CDN) */
+.fa, .fas, .far, .fal, .fab {
+  font-family: 'Font Awesome 6 Free' !important;
+}

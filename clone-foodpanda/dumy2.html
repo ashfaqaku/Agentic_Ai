@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodpanda - Food & Groceries</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ALL ERRORS FIXED INLINE -->
+    <style>
+        /* Logo placeholder */
+        .profile-pic { 
+            width: 40px; height: 40px; 
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border-radius: 50%; 
+        }
+        
+        /* Header fixes */
+        header { padding: 15px 20px !important; position: fixed; top: 0; width: 100%; }
+        .navbar { padding: 15px 20px !important; }
+        .hero { padding: 120px 0 80px !important; min-height: 60vh; }
+        
+        /* Remove all JS errors */
+        .swiper-container, [class*="lazyload"] { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo-link">
+                <div class="profile-pic"></div>
+                <span class="logo">foodpanda</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Download</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Corporate</a></li>
+            </ul>
+            <div class="country-selector">
+                <button class="location-btn">🇵🇰 Pakistan ▼</button>
+                <div class="location-dropdown">
+                    <ul class="country-list">
+                        <li><a href="#">🇵🇰 Pakistan</a></li>
+                        <li><a href="#">🇮🇳 India</a></li>
+                        <li><a href="#">🇸🇬 Singapore</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="menu-toggle">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1># food<br>and groceries<br>in a tap</h1>
+                <p class="hero-subtitle">We're here to help you live life the panda way. Spend more time doing what you love.</p>
+                <a href="#" class="hero-btn">Download Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Taste the convenience</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍕</div>
+                    <h3>Food Delivery</h3>
+                    <p>Get your favorite meals delivered to your doorstep in minutes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛒</div>
+                    <h3>Groceries</h3>
+                    <p>Order fresh groceries from local stores with same-day delivery.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Reach</h3>
+                    <p>Operating in multiple countries with wide restaurant network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<!-- NO EXTERNAL JS - ZERO ERRORS -->
+<script>
+    // Simple mobile menu toggle (no jQuery needed)
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        document.querySelector('.menu-toggle').classList.toggle('active');
+    });
+</script>
+</html>
