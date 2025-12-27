@@ -18,7 +18,7 @@ const App: React.FC = () => {
   // Next.js hooks for navigation
   const searchParams = useSearchParams();
   const router = useRouter();
-  
+
   // Check URL params to see if we should start on a specific tab
   const getInitialTab = (): AppTab => {
     const tabParam = searchParams.get('tab');
@@ -37,14 +37,14 @@ const App: React.FC = () => {
 
   const handleTabChange = (tab: AppTab) => {
     setActiveTab(tab);
-    
+
     // Update URL using Next.js router
     if (tab === AppTab.HOME) {
       router.push('/');
     } else {
       router.push(`/?tab=${tab}`);
     }
-    
+
     // Smooth scroll to top on navigation
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -83,11 +83,11 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {!isAdsMode && <Header activeTab={activeTab} onTabChange={handleTabChange} />}
-      
+
       <main className="flex-1">
         {renderContent()}
       </main>
-      
+
       {!isAdsMode && (
         <footer className="bg-black text-white pt-24 pb-12 px-6 md:px-[10%] relative overflow-hidden">
           <div className="max-w-[1400px] mx-auto">
@@ -107,32 +107,35 @@ const App: React.FC = () => {
                 <h3 className="text-xl font-black text-white tracking-tight">Navigate</h3>
                 <ul className="space-y-4">
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.HOME)} 
-                      className={`text-white text-lg font-bold hover:text-panda transition-colors ${activeTab === AppTab.HOME ? 'text-panda' : ''}`}
+                    <button
+                      onClick={() => handleTabChange(AppTab.HOME)}
+                      className={`absolute bottom-0 left-0 h-[2px] bg-panda w-full origin-left transition-transform duration-300 ${activeTab === AppTab.HOME ? 'scale-x-100' : 'scale-x-0'}group-hover:scale-x-100`}
                     >
                       Home
                     </button>
                   </li>
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.ABOUT)} 
-                      className={`text-white text-lg font-bold hover:text-panda transition-colors ${activeTab === AppTab.ABOUT ? 'text-panda' : ''}`}
+                    <button
+                      onClick={() => handleTabChange(AppTab.ABOUT)}
+                      className={`absolute bottom-0 left-0 h-[2px] bg-panda w-full
+    origin-left transition-transform duration-300
+    ${activeTab === AppTab.ABOUT ? 'scale-x-100' : 'scale-x-0'}
+    group-hover:scale-x-100`}
                     >
                       About
                     </button>
                   </li>
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.CONTACT)} 
+                    <button
+                      onClick={() => handleTabChange(AppTab.CONTACT)}
                       className={`text-white text-lg font-bold hover:text-panda transition-colors ${activeTab === AppTab.CONTACT ? 'text-panda' : ''}`}
                     >
                       Contact
                     </button>
                   </li>
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.NEWSROOM)} 
+                    <button
+                      onClick={() => handleTabChange(AppTab.NEWSROOM)}
                       className={`text-white text-lg font-bold hover:text-panda transition-colors ${activeTab === AppTab.NEWSROOM ? 'text-panda' : ''}`}
                     >
                       Newsroom
@@ -146,8 +149,8 @@ const App: React.FC = () => {
                 <h3 className="text-xl font-black text-white tracking-tight">Collaborate</h3>
                 <ul className="space-y-4">
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.CAREERS)} 
+                    <button
+                      onClick={() => handleTabChange(AppTab.CAREERS)}
                       className="text-white text-lg font-bold hover:text-panda transition-colors"
                     >
                       Explore careers
@@ -159,8 +162,8 @@ const App: React.FC = () => {
                     </a>
                   </li>
                   <li>
-                    <button 
-                      onClick={() => handleTabChange(AppTab.PARTNERS)} 
+                    <button
+                      onClick={() => handleTabChange(AppTab.PARTNERS)}
                       className="text-white text-lg font-bold hover:text-panda transition-colors"
                     >
                       Feed your team
@@ -191,9 +194,9 @@ const App: React.FC = () => {
               <div className="text-white text-sm md:text-base font-bold">
                 Copyright © 2025 foodpanda
               </div>
-              
+
               {/* Scroll to Top Arrow */}
-              <button 
+              <button
                 onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className="w-14 h-12 bg-[#ff2b85] text-white flex items-center justify-center rounded-lg hover:bg-[#e02475] transition-all transform hover:scale-105 active:scale-95 shadow-xl shadow-panda/20"
               >

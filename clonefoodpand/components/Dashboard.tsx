@@ -39,16 +39,41 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
     }
   ];
 
-  return (
-    <div className="flex flex-col animate-in fade-in duration-1000 relative">
-      {/* 1. Main Hero Section */}
-      <section className="hero-section">
-        <h1 className="hero-text">
+return (
+  <div className="relative min-h-[70vh]">
+    <section className="relative w-full h-[70vh] overflow-hidden">
+      {/* 1. Main Hero Section - FIXED */}
+      <div className="absolute inset-0 w-full h-[50vh] md:h-[70vh] lg:h-[80vh] overflow-hidden">
+        <video 
+          className="w-full h-full object-cover"
+          autoPlay 
+          muted 
+          loop
+          playsInline
+        >
+          <source 
+            src="https://player.vimeo.com/progressive_redirect/playback/887673049/rendition/720p/file.mp4?loc=external&amp;log_user=0&amp;signature=01e93bdd482c18d9e437c0cfc867ddf242690ae4e9819149a92bd5c8046f8e7e" 
+            type="video/mp4" 
+          />
+        </video>
+        
+        {/* Dark overlay - text readable banane ke liye */}
+        <div className="absolute inset-0 bg-black/30"></div>
+      </div>
+      
+      {/* Hero Text - Directly on top of video */}
+      <div className="relative z-10 min-h-screen flex items-start md:items-center justify-left px-6 md:px-[10%] pt-32 md:pt-0 mt-[-100px]">
+        <h1 className="text-white text-left text-5xl md:text-7xl font-bold leading-tight">
           food<br />
           and groceries<br />
           in a tap
         </h1>
-      </section>
+      </div>
+    </section>
+
+    {/* Rest of your code remains same... */}
+  
+    
 
       {/* 2. Brand Mission Section */}
       <section className="bg-white py-24 md:py-32 px-6 md:px-[10%]">
