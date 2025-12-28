@@ -18,26 +18,21 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
     { id: AppTab.PANDA_ADS, label: 'panda ads' },
     { id: AppTab.CONTACT, label: 'Contact' },
     { id: AppTab.CAREERS, label: 'Careers' },
-    // { id: AppTab.INSIGHTS, label: 'Insights' },
-    // { id: AppTab.CASE_STUDIES, label: 'Case Studies' },
-    // { id: AppTab.RESOURCES, label: 'Resources' }, 
   ];
 
   return (
     <header className="h-20 bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-[1400px] mx-auto h-full flex items-center justify-between px-6">
         <div className="flex items-center gap-3 cursor-pointer">
-          <a href="/panda-ads" target="_blank" rel="noopener noreferrer">
-            Panda Ads
-          </a>
-          <div className="bg-panda rounded-lg p-1.5 flex items-center justify-center">
-             <i className="fas fa-paw text-white text-lg"></i>
+          <div className=" rounded-lg p-1.5 flex items-center justify-center">
+             
+          <img src="/images/foodpandaicon.png" alt="" className="w-10 h-10 object-contain border border-transparent" />
           </div>
           <span className="text-[26px] font-black text-panda tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>foodpanda</span>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-6 h-full">
+        <nav className="lg:flex hidden items-center gap-6 h-full">
           {menuItems.map((item) => (
             <button
               key={item.id}

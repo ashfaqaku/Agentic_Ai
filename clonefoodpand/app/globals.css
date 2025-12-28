@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --panda-pink: #D70F64;
+  --panda-pink: #ff2b85;
   --panda-bg: #f7f7f7;
   --background: #ffffff;
   --foreground: #171717;
@@ -47,7 +47,7 @@ body {
 }
 
 .btn-panda:hover {
-  background-color: #b00c52;
+  background-color: #ff2b85;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(215, 15, 100, 0.3);
 }
@@ -72,6 +72,8 @@ body {
   border: none;
   cursor: pointer;
 }
+
+
 
 .nav-link:hover {
   color: var(--panda-pink);
@@ -154,7 +156,7 @@ body {
 }
 
 .text-panda-dark {
-  color: #b00c52;
+  color: #ff2b85;
 }
 
 .border-panda {
@@ -176,4 +178,15 @@ body {
 /* Font Awesome Base (if using CDN) */
 .fa, .fas, .far, .fal, .fab {
   font-family: 'Font Awesome 6 Free' !important;
+}
+
+
+/* Add this at the end of your globals.css */
+img, svg {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  text-decoration: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 }
