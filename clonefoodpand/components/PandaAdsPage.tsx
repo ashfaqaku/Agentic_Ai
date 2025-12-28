@@ -78,47 +78,51 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
     <div className="flex flex-col animate-in fade-in duration-700 bg-white min-h-screen font-sans">
       {/* Panda Ads Specific Header */}
       <nav className="bg-white border-b border-gray-100 py-4 px-6 md:px-[10%] flex items-center justify-between sticky top-0 z-50 shadow-sm">
-        <div 
+        <div
           className="flex items-center gap-2 cursor-pointer group"
           onClick={() => onNavigate(AppTab.HOME)}
         >
           <span className="text-2xl font-black text-panda tracking-tight group-hover:opacity-80 transition-opacity">panda</span>
           <span className="text-2xl font-light text-gray-400 -ml-1">ads</span>
         </div>
-        
+
         <div className="hidden lg:flex items-center gap-8">
           <a href="#" className="text-sm font-bold text-gray-800 hover:text-panda border-b-2 border-panda">Home</a>
-          <a href="#" className="text-sm font-bold text-gray-800 hover:text-panda border-b-2 border-transparent">Solutions</a>
-          
+          <button
+            onClick={() => onNavigate(AppTab.SOLUTIONS)} // ✅ Navigation function
+            className="text-sm font-bold text-gray-800 hover:text-panda border-b-2 border-transparent"
+          >
+            Solutions
+          </button>
           {/* ✅ CORRECT RESOURCES DROPDOWN */}
           <div className="relative group">
             <button className="text-sm font-bold text-gray-800 hover:text-panda border-b-2 border-transparent flex items-center gap-1">
               Resources <i className="fas fa-chevron-down text-xs ml-1"></i>
             </button>
-            
+
             <div className="absolute hidden group-hover:block bg-white shadow-xl rounded-lg p-4 min-w-[220px] z-50 top-full mt-2 border border-gray-100 left-0">
               {/* ✅ EXISTING ITEMS */}
-              
-              
+
+
               {/* Divider */}
               <div className="border-t my-2"></div>
-              
+
               {/* ✅ NEW ITEMS */}
-              <button 
+              <button
                 onClick={() => onNavigate?.(AppTab.INSIGHTS)}
                 className="block w-full text-left p-3 hover:bg-gray-50 rounded-md text-gray-800 font-semibold hover:text-panda transition-colors"
               >
                 <i className="fas fa-lightbulb mr-2 text-panda"></i>Insights
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => onNavigate?.(AppTab.CASE_STUDIES)}
                 className="block w-full text-left p-3 hover:bg-gray-50 rounded-md text-gray-800 font-semibold hover:text-panda transition-colors"
               >
                 <i className="fas fa-briefcase mr-2 text-panda"></i>Case Studies
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => onNavigate?.(AppTab.NEWSROOM)}
                 className="block w-full text-left p-3 hover:bg-gray-50 rounded-md text-gray-800 font-semibold hover:text-panda transition-colors"
               >
@@ -126,13 +130,13 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
               </button>
             </div>
           </div>
-          
+
           <a href="#" className="text-sm font-bold text-gray-800 hover:text-panda border-b-2 border-transparent">Tools</a>
-          
+
           <button className="btn-panda px-6 py-2 rounded-full font-bold text-sm shadow-lg shadow-panda/20">
             Contact us
           </button>
-          
+
           <button className="text-gray-800 text-xl">
             <i className="fas fa-search"></i>
           </button>
@@ -143,15 +147,15 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
       <section className="relative w-full bg-[#0a0a0a] min-h-[600px] flex items-center overflow-hidden">
         <div className="absolute right-0 top-0 w-full h-full lg:w-2/3">
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent z-10"></div>
-          <img 
-            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000" 
-            alt="Advertising context" 
+          <img
+            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000"
+            alt="Advertising context"
             className="w-full h-full object-cover grayscale-[0.2] contrast-125"
           />
           <div className="absolute inset-0 flex items-center justify-end pr-[5%]">
             <div className="relative w-[500px] h-[600px] hidden md:block">
-              <img 
-                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=1000" 
+              <img
+                src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=1000"
                 className="w-full h-full object-cover rounded-b-full translate-y-20 border-l-8 border-white/10"
                 alt="Person on phone"
               />
@@ -176,110 +180,110 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
             </button>
           </div>
         </div>
-        
+
       </section>
 
       <section className="bg-gradient-to-br from-panda/5 to-white py-24 px-6 md:px-[10%]">
-  <div className="max-w-[1400px] mx-auto">
-    
-    {/* Heading */}
-    <h2 className="text-center text-3xl md:text-[42px] font-black text-gray-900 mb-4 leading-tight">
-      Boost your brand with Asia's largest<br />
-      <span>food and grocery delivery network*</span>
-    </h2>
-    
-    {/* Stats Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-      
-      {/* Stat 1 - 125M Downloads */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
-          125M
+        <div className="max-w-[1400px] mx-auto">
+
+          {/* Heading */}
+          <h2 className="text-center text-3xl md:text-[42px] font-black text-gray-900 mb-4 leading-tight">
+            Boost your brand with Asia's largest<br />
+            <span>food and grocery delivery network*</span>
+          </h2>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+            {/* Stat 1 - 125M Downloads */}
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
+                125M
+              </div>
+              <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
+                app downloads
+              </div>
+              <div className="mt-4 text-gray-500 text-sm">
+                Across all platforms and markets
+              </div>
+            </div>
+
+            {/* Stat 2 - 11 Markets */}
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
+                11
+              </div>
+              <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
+                markets
+              </div>
+              <div className="mt-4 text-gray-500 text-sm">
+                Serving major cities across Asia-Pacific
+              </div>
+            </div>
+
+            {/* Stat 3 - 400+ Cities */}
+            <div className="text-center group hover:scale-105 transition-transform duration-300">
+              <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
+                400+
+              </div>
+              <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
+                cities
+              </div>
+              <div className="mt-4 text-gray-500 text-sm">
+                With active delivery coverage
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="mt-20 text-center">
+            <h3 className="text-2xl md:text-[32px] font-black text-gray-900 mb-6">
+              Power up your visibility & engagement
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+
+              {/* Stat 1 - 125M Downloads */}
+              <div className="text-center group hover:scale-105 transition-transform duration-300">
+                <div className="text-xl font-bold text-gray-900 mb-3 ">
+                  Maximise you reach
+                </div>
+                <div className="mt-4 text-gray-500 text-sm">
+                  Amplify your campaign by connecting with your target customers right where they shop
+                </div>
+              </div>
+
+              {/* Stat 2 - 11 Markets */}
+              <div className="text-center group hover:scale-105 transition-transform duration-300">
+                <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
+                  11
+                </div>
+                <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
+                  markets
+                </div>
+                <div className="mt-4 text-gray-500 text-sm">
+                  Serving major cities across Asia-Pacific
+                </div>
+              </div>
+
+              {/* Stat 3 - 400+ Cities */}
+              <div className="text-center group hover:scale-105 transition-transform duration-300">
+                <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
+                  400+
+                </div>
+                <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
+                  cities
+                </div>
+                <div className="mt-4 text-gray-500 text-sm">
+                  With active delivery coverage
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
-        <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
-          app downloads
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-          Across all platforms and markets
-        </div>
-      </div>
-      
-      {/* Stat 2 - 11 Markets */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
-          11
-        </div>
-        <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
-          markets
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-          Serving major cities across Asia-Pacific
-        </div>
-      </div>
-      
-      {/* Stat 3 - 400+ Cities */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
-          400+
-        </div>
-        <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
-          cities
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-          With active delivery coverage
-        </div>
-      </div>
-      
-    </div>
-    
-    {/* Bottom CTA */}
-    <div className="mt-20 text-center">
-      <h3 className="text-2xl md:text-[32px] font-black text-gray-900 mb-6">
-        Power up your visibility & engagement
-      </h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-      
-      {/* Stat 1 - 125M Downloads */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-xl font-bold text-gray-900 mb-3 ">
-          Maximise you reach
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-        Amplify your campaign by connecting with your target customers right where they shop
-        </div>
-      </div>
-      
-      {/* Stat 2 - 11 Markets */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
-          11
-        </div>
-        <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
-          markets
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-          Serving major cities across Asia-Pacific
-        </div>
-      </div>
-      
-      {/* Stat 3 - 400+ Cities */}
-      <div className="text-center group hover:scale-105 transition-transform duration-300">
-        <div className="text-6xl md:text-[72px] font-black leading-none mb-3">
-          400+
-        </div>
-        <div className="text-lg md:text-xl font-bold text-gray-800 uppercase tracking-wider">
-          cities
-        </div>
-        <div className="mt-4 text-gray-500 text-sm">
-          With active delivery coverage
-        </div>
-      </div>
-      
-    </div>
-    </div>
-    
-  </div>
-</section>
+      </section>
 
       {/* Comparison Section */}
       <section className="bg-gray-50 py-24 px-6 md:px-[10%] border-y border-gray-100">
@@ -374,10 +378,10 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
                   <p className="text-gray-500 font-bold text-sm">{t.title}</p>
                 </div>
                 <div className="mt-auto pt-8">
-                  <img 
-                    src={t.logo} 
-                    alt="Company logo" 
-                    className="h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" 
+                  <img
+                    src={t.logo}
+                    alt="Company logo"
+                    className="h-12 object-contain filter grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                   />
                 </div>
               </div>
@@ -407,9 +411,9 @@ const PandaAdsPage: React.FC<PandaAdsPageProps> = ({ onNavigate }) => {
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-x-12 gap-y-16 items-center justify-items-center">
             {brands.map((brand, idx) => (
               <div key={idx} className="w-full flex items-center justify-center group h-12">
-                <img 
-                  src={brand.logo} 
-                  alt={brand.name} 
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
                   className="max-h-full max-w-full object-contain filter grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300 transform group-hover:scale-110"
                 />
               </div>

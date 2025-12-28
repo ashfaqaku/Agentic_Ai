@@ -1,4 +1,3 @@
-
 export enum AppTab {
   HOME = 'home',
   ABOUT = 'about',
@@ -6,13 +5,10 @@ export enum AppTab {
   PARTNERS = 'partners',
   PANDA_ADS = 'panda-ads',
   CONTACT = 'contact',
-  CAREERS = 'careers',
-  INSIGHTS = 'insights',
-  CASE_STUDIES = 'case-studies',
-  RESOURCES = 'resources',
-  SOLUTIONS = 'solutions',
-
+  CAREERS = 'careers'
 }
+
+export type PandaAdsSubTab = 'home' | 'solutions' | 'resources' | 'tools';
 
 export interface ChatMessage {
   id: string;

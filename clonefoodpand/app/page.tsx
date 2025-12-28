@@ -13,11 +13,14 @@ import PandaAdsPage from '../components/PandaAdsPage';
 
 // Add this import for Next.js navigation
 import { useSearchParams, useRouter } from 'next/navigation';
+import SolutionsPage from '@/components/solutions';
 
 const App: React.FC = () => {
   // Next.js hooks for navigation
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  
 
   // Check URL params to see if we should start on a specific tab
   const getInitialTab = (): AppTab => {
@@ -63,6 +66,8 @@ const App: React.FC = () => {
         return <PandaAdsPage onNavigate={handleTabChange} />;
       case AppTab.CONTACT:
         return <ChatLab />;
+        case AppTab.SOLUTIONS: // ✅ ADD THIS CASE
+      return <SolutionsPage onNavigate={setActiveTab} />
       case AppTab.CAREERS:
         return (
           <div className="max-w-4xl mx-auto p-20 text-center space-y-6">
@@ -79,16 +84,18 @@ const App: React.FC = () => {
   };
 
   const isAdsMode = activeTab === AppTab.PANDA_ADS;
+  const isSolutionsMode = activeTab === AppTab.SOLUTIONS; // ← NAYA ADD KARO
+  const hideMainHeader = isAdsMode || isSolutionsMode; // ← DONO CASES
 
   return (
     <div className="min-h-screen flex flex-col">
-      {!isAdsMode && <Header activeTab={activeTab} onTabChange={handleTabChange} />}
+      {!hideMainHeader  && <Header activeTab={activeTab} onTabChange={handleTabChange} />}
 
       <main className="flex-1">
         {renderContent()}
       </main>
 
-      {!isAdsMode && (
+      {!hideMainHeader  && (
         <footer className="bg-black text-white pt-24 pb-12 px-6 md:px-[10%] relative overflow-hidden">
           <div className="max-w-[1400px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 md:gap-24 mb-32">

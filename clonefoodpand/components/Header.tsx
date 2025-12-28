@@ -5,6 +5,7 @@ import { AppTab } from '../types/types';
 interface HeaderProps {
   activeTab: AppTab;
   onTabChange: (tab: AppTab) => void;
+  isMinimal?: boolean; // New prop to determine minimal mode
 }
 
 const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {

@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Nova AI Studio",
+  "description": "A high-performance, multi-modal AI workshop featuring real-time chat, vision analysis, image generation, and live voice interactions powered by Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
