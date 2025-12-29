@@ -28,7 +28,9 @@ const Header: React.FC<HeaderProps> = ({ activeTab, onTabChange }) => {
           className="flex items-center gap-3 cursor-pointer outline-none group shrink-0"
         >
           <div className=" rounded-xl p-2 flex items-center justify-center transition-transform group-hover:scale-110">
-            <img src="../../app/assets/images/foodpandicon.png" alt="" />
+            <img src="app/assets/images/foodpandicon.png" alt="" />
+            {/* " alt="" /> */}
+            {/* ../../app/assets/images/foodpandicon.png */}
           </div>
           <span className="text-[28px] font-black text-[#ff2b85] tracking-tight" style={{ fontFamily: 'Arial, sans-serif' }}>foodpanda</span>
         </button>

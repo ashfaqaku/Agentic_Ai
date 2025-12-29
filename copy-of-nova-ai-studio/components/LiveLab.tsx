@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef } from 'react';
-import { gemini } from '../services/geminiService';
+// import { gemini } from '../services/geminiService';
 import { LiveServerMessage } from '@google/genai';
 
 const LiveLab: React.FC = () => {

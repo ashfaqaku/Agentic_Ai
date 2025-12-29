@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import { gemini } from '../services/geminiService';
+// // import { gemini } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
 const ChatLab: React.FC = () => {
@@ -23,9 +23,9 @@ const ChatLab: React.FC = () => {
     setIsLoading(true);
     try {
       const history = messages.map(m => ({ role: m.role, parts: m.text }));
-      const reply = await gemini.chat(input, history);
-      const aiMsg: ChatMessage = { id: (Date.now() + 1).toString(), role: 'model', text: reply || "I couldn't generate a response.", timestamp: new Date() };
-      setMessages(prev => [...prev, aiMsg]);
+      // const reply = await gemini.chat(input, history);
+      // const aiMsg: ChatMessage = { id: (Date.now() + 1).toString(), role: 'model', text: reply || "I couldn't generate a response.", timestamp: new Date() };
+      // setMessages(prev => [...prev, aiMsg]);
     } catch (error) {
       console.error(error);
     } finally {

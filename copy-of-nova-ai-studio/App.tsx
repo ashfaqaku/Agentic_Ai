@@ -8,7 +8,7 @@ import PandaAdsPage from './components/PandaAdsPage';
 import NewsroomPage from './components/NewsroomPage';
 import ChatLab from './components/ChatLab';
 import VisionLab from './components/VisionLab';
-import ImageStudio from './components/ImageStudio';
+// import ImageStudio from './components/ImageStudio';
 import LiveLab from './components/LiveLab';
 
 const App: React.FC = () => {
@@ -46,7 +46,7 @@ const App: React.FC = () => {
       case AppTab.PANDA_ADS:
         return <PandaAdsPage activeTab={activeTab} onNavigate={handleTabChange} />;
       case AppTab.PARTNERS:
-        return <ImageStudio />;
+        return // <ImageStudio />;
       case AppTab.CONTACT:
         return <ChatLab />;
       case AppTab.CAREERS:

@@ -1,6 +1,8 @@
 import React from 'react';
 import { AppTab } from '../types';
 
+
+
 interface FooterProps {
   activeTab: AppTab;
   onTabChange: (tab: AppTab) => void;

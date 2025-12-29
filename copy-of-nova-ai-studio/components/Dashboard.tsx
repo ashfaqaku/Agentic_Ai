@@ -261,7 +261,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate }) => {
           </div>
           <div className="w-full lg:w-1/2 rounded-[2rem] overflow-hidden shadow-2xl border border-gray-50 relative group">
             <img
-              src="../../app/assets/images/feedyourteam.png"
+              src="app/assets/images/feedyourteam.png"
               alt="Corporate Food Delivery"
             /></div>
         </div>
